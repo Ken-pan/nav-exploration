@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Nav</title>
+    <link rel="stylesheet" href="/tailwind.css">
+    <style>
+        .collapsed .nav-text {
+            display: none;
+        }
+
+        .collapsed .accordion-content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="flex">
+    <header class="fixed top-0 w-full h-[72px] bg-white border-b border-gray-200 flex items-center">
+        <div class="w-full h-18 px-8 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="h-10 flex items-center gap-4">
+                <div class="flex items-center gap-8">
+                    <div class=" flex items-start gap-2.5">
+                        <div class="h-8 flex items-center gap-2">
+                            <div class="w-28 h-8 flex items-center">
+                                <div class="w-28 h-8 flex flex-col"></div>
+                            </div>
+                            <div class=" w-28 h-8 px-0.5 py-1.5 flex items-center">
+                                <div class="w-28 h-5 flex flex-col">
+                                    <div class="w-5 h-5 relative"></div>
+                                    <div class="w-22 h-4 relative"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Search and Icons Section -->
+            <div class="flex items-center gap-4">
+                <div class="w-120 flex flex-col gap-2">
+                    <div class="h-11 bg-white rounded-full flex items-center">
+                        <div class="w-full px-4 py-3 bg-slate-50 flex items-center gap-2">
+                            <div class="w-5 h-5 relative"></div>
+                            <div class="flex-grow text-gray-500 text-sm font-normal leading-tight">
+                                Search by keyword(s), VPN or IM SKU
+                            </div>
+                            <div class="w-5 h-5 relative"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="pl-4 flex items-start gap-1">
+                        <div class=" p-2.5 bg-white rounded-full flex items-center">
+                            <div class="w-5 h-5 relative"></div>
+                        </div>
+                        <div class=" p-2.5 bg-white rounded-full flex items-center">
+                            <div class="w-5 h-5 relative"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center">
+                            <div class="w-10 h-10 relative opacity-10 rounded-full border border-gray-900"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav id="sideNav" class="bg-gray-800 text-white w-64 space-y-2 p-4 transition-width duration-300 h-screen">
+        <div class="flex items-center space-x-2">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6H9m-6-6h.01M3 6h18m-6 6H9m-6 6h.01M3 6h.01"></path>
+            </svg>
+            <span class="nav-text">Home</span>
+        </div>
+        <div class="accordion">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="toggleAccordion(this)">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6H9m-6-6h.01M3 6h18m-6 6H9m-6 6h.01M3 6h.01"></path>
+                </svg>
+                <span class="nav-text">Menu 1</span>
+            </div>
+            <div class="accordion-content space-y-2 pl-8 hidden">
+                <div class="flex items-center space-x-2 cursor-pointer">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6H9m-6-6h.01M3 6h18m-6 6H9m-6 6h.01M3 6h.01"></path>
+                    </svg>
+                    <span class="nav-text">Submenu 1</span>
+                </div>
+                <div class="flex items-center space-x-2 cursor-pointer">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6H9m-6-6h.01M3 6h18m-6 6H9m-6 6h.01M3 6h.01"></path>
+                    </svg>
+                    <span class="nav-text">Submenu 2</span>
+                </div>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="toggleAccordion(this)">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6H9m-6-6h.01M3 6h18m-6 6H9m-6 6h.01M3 6h.01"></path>
+                </svg>
+                <span class="nav-text">Menu 2</span>
+            </div>
+            <div class="accordion-content space-y-2 pl-8 hidden">
+                <div class="flex items-center space-x-2 cursor-pointer">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6H9m-6-6h.01M3 6h18m-6 6H9m-6 6h.01M3 6h.01"></path>
+                    </svg>
+                    <span class="nav-text">Submenu 3</span>
+                </div>
+                <div class="flex items-center space-x-2 cursor-pointer">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18m-6 6H9m-6-6h.01M3 6h18m-6 6H9m-6 6h.01M3 6h.01"></path>
+                    </svg>
+                    <span class="nav-text">Submenu 4</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-grow p-4">
+        <button class="bg-blue-500 text-white px-4 py-2" onclick="toggleSideNav()">Toggle Side Nav</button>
+    </main>
+
+    <script>
+        function toggleSideNav() {
+            const sideNav = document.getElementById('sideNav');
+            sideNav.classList.toggle('collapsed');
+        }
+
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const sideNav = document.getElementById('sideNav');
+            if (sideNav.classList.contains('collapsed')) {
+                sideNav.classList.remove('collapsed');
+            }
+            content.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
