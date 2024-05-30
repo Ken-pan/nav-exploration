@@ -649,6 +649,9 @@
                         }, 0);
                     } else if (action === 'expandTemporary') {
                         sideNav.classList.remove('sidenav-collapsed');
+                        document.querySelectorAll('.tooltip').forEach(tooltip => {
+                            tooltip.style.display = 'none';
+                        });
                         setTimeout(() => {
                             content = this.nextElementSibling;
                             chevron = this.querySelector('.chevron-down');
@@ -661,8 +664,11 @@
                             chevron.classList.remove('chevron-rotate');
                         }, 2400); // Adjust timing as needed
                     } else if (action === 'expand') {
+                        document.querySelectorAll('.tooltip').forEach(tooltip => {
+                            tooltip.style.display = 'none';
+                        });
                         sideNav.classList.remove('sidenav-collapsed');
-                        sideNav.classList.remove('sidenav-collapsed');
+                         NavExpand = true;
                         setTimeout(() => {
                             content = this.nextElementSibling;
                             chevron = this.querySelector('.chevron-down');
@@ -783,6 +789,7 @@
 
             function handleCollapsedState() {
                 const sideNav = document.getElementById('sideNav');
+
                 if (sideNav.classList.contains('sidenav-collapsed') && !toggleSideNav.dontCollapseAccordions) {
                     const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
                     const allChevrons = document.querySelectorAll('.chevron-down');
@@ -809,6 +816,10 @@
             const sideNav = document.getElementById('sideNav');
             sideNav.classList.toggle('sidenav-collapsed');
 
+            document.querySelectorAll('.tooltip').forEach(tooltip => {
+                tooltip.style.display = 'none';
+            });
+
             if (sideNav.classList.contains('sidenav-collapsed')) {
                 NavExpand = false;
                 checkhoverExpandStatus();
@@ -816,6 +827,8 @@
                 NavExpand = true;
                 checkhoverExpandStatus();
             }
+
+
 
             if (sideNav.classList.contains('sidenav-collapsed')) {
                 const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
@@ -841,7 +854,6 @@
 
         function checkhoverExpandStatus() {
             const sideNav = document.getElementById('sideNav');
-            console.log("hoverExpandStatus:" + hoverExpandStatus + "; NavExpand:" + NavExpand)
             if (hoverExpandStatus == true && NavExpand == false) {
                 sideNav.addEventListener('mouseenter', expandSideNav);
                 sideNav.addEventListener('mouseleave', collapseSideNav);
