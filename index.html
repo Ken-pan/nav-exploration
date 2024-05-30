@@ -427,13 +427,14 @@
     </div>
 
     <script>
-
+        let popupVisible = false;
 
         let currentActive = null;
 
 
 
         document.addEventListener("DOMContentLoaded", function () {
+            let popupVisible = false;
             const primaryButtons = document.querySelectorAll(".nav-item-primary");
             const secondaryButtons = document.querySelectorAll(".nav-item-secondary");
             const collapseButtonRadios = document.querySelectorAll('input[name="collapseButtonPosition"]');
@@ -557,6 +558,7 @@
             });
 
             function showTooltip(element) {
+                if (popupVisible) return;
                 const tooltipText = element.querySelector(".nav-item-text").innerText;
                 let tooltip = element.querySelector(".tooltip");
 
@@ -738,9 +740,16 @@
                 const popup = document.getElementById('popup-wrapper');
                 if (show) {
                     popup.classList.add('popup-visible');
+                    popupVisible = true;
+                    document.querySelectorAll('.tooltip').forEach(tooltip => {
+                        tooltip.style.display = 'none';
+                    });
                 } else {
                     popup.classList.remove('popup-visible');
-
+                    popupVisible = false;
+                    document.querySelectorAll('.tooltip').forEach(tooltip => {
+                        tooltip.style.display = 'none';
+                    });
                 }
             }
         });
