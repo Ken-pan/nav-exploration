@@ -492,7 +492,7 @@
                     case 'fabTop':
                         toggleSideNavButtons.fabTop.style.display = 'flex';
                         toggleSideNavButtons.fabTop.style.top = '32px';
-                         toggleSideNavButtons.fabBottom.style.bottom = 'auto';
+                        toggleSideNavButtons.fabBottom.style.bottom = 'auto';
                         break;
                     case 'fabMiddle':
                         toggleSideNavButtons.fabMiddle.style.display = 'flex';
@@ -808,7 +808,10 @@
         function toggleSideNav() {
             const sideNav = document.getElementById('sideNav');
             sideNav.classList.toggle('sidenav-collapsed');
-
+            document.querySelectorAll('.tooltip').forEach(tooltip => {
+                tooltip.style.opacity='0';
+                tooltip.style.display = 'none';
+            });
             if (!toggleSideNav.dontCollapseAccordions) {
                 handleCollapsedState();
             }
