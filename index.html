@@ -492,13 +492,16 @@
                     case 'fabTop':
                         toggleSideNavButtons.fabTop.style.display = 'flex';
                         toggleSideNavButtons.fabTop.style.top = '32px';
+                         toggleSideNavButtons.fabBottom.style.bottom = 'auto';
                         break;
                     case 'fabMiddle':
                         toggleSideNavButtons.fabMiddle.style.display = 'flex';
                         toggleSideNavButtons.fabMiddle.style.top = '48%';
+                        toggleSideNavButtons.fabBottom.style.bottom = 'auto';
                         break;
                     case 'fabBottom':
                         toggleSideNavButtons.fabBottom.style.display = 'flex';
+                        toggleSideNavButtons.fabMiddle.style.top = 'auto';
                         toggleSideNavButtons.fabBottom.style.bottom = '28px';
                         break;
                 }
