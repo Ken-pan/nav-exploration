@@ -428,7 +428,8 @@
 
     <script>
         let popupVisible = false;
-
+        let NavExpand = true;
+        let hoverExpandStatus = false;
         let currentActive = null;
 
 
@@ -518,9 +519,13 @@
 
             const hoverExpand = urlParams.get('hoverExpand');
             if (hoverExpand === 'yes') {
+                hoverExpandStatus = true
                 document.getElementById('hoverExpand').checked = true;
-                document.getElementById('sideNav').addEventListener('mouseenter', expandSideNav);
-                document.getElementById('sideNav').addEventListener('mouseleave', collapseSideNav);
+                checkhoverExpandStatus()
+            } else {
+                hoverExpandStatus = false
+                document.getElementById('hoverExpand').checked = false;
+                checkhoverExpandStatus()
             }
 
             const dontCollapse = urlParams.get('dontCollapse');
@@ -759,23 +764,9 @@
             document.getElementById('hoverExpand').addEventListener('change', function () {
                 updateURLParameter('hoverExpand', this.checked ? 'yes' : 'no');
                 const sideNav = document.getElementById('sideNav');
-                if (this.checked) {
-                    sideNav.addEventListener('mouseenter', expandSideNav);
-                    sideNav.addEventListener('mouseleave', collapseSideNav);
-                } else {
-                    sideNav.removeEventListener('mouseenter', expandSideNav);
-                    sideNav.removeEventListener('mouseleave', collapseSideNav);
-                }
+                hoverExpandStatus = this.checked ? true : false;
+                checkhoverExpandStatus();
             });
-            function expandSideNav() {
-                this.classList.remove('sidenav-collapsed');
-                handleExpandedState();
-            }
-
-            function collapseSideNav() {
-                this.classList.add('sidenav-collapsed');
-                handleCollapsedState();
-            }
 
             function handleExpandedState() {
                 const sideNav = document.getElementById('sideNav');
@@ -800,33 +791,7 @@
                 }
             }
 
-            function toggleSideNav() {
-                const sideNav = document.getElementById('sideNav');
-                sideNav.classList.toggle('sidenav-collapsed');
-                document.querySelectorAll('.tooltip').forEach(tooltip => {
-                    tooltip.style.opacity = '0';
-                    tooltip.style.display = 'none';
-                });
-                if (!toggleSideNav.dontCollapseAccordions) {
-                    handleCollapsedState();
-                }
-
-                if (!sideNav.classList.contains('sidenav-collapsed')) {
-                    const activeSecondary = document.querySelector('.nav-item-secondary.active');
-                    if (activeSecondary && !toggleSideNav.dontCollapseAccordions) {
-                        const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
-                        if (parentAccordion && parentAccordion.classList.contains('accordion')) {
-                            parentAccordion.click();
-                        }
-                    }
-                }
-            }
         });
-
-
-
-
-
 
 
 
@@ -843,6 +808,14 @@
         function toggleSideNav() {
             const sideNav = document.getElementById('sideNav');
             sideNav.classList.toggle('sidenav-collapsed');
+
+            if (sideNav.classList.contains('sidenav-collapsed')) {
+                NavExpand = false;
+                checkhoverExpandStatus();
+            } else {
+                NavExpand = true;
+                checkhoverExpandStatus();
+            }
 
             if (sideNav.classList.contains('sidenav-collapsed')) {
                 const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
@@ -863,6 +836,52 @@
                         parentAccordion.click();
                     }
                 }
+            }
+        }
+
+        function checkhoverExpandStatus() {
+            const sideNav = document.getElementById('sideNav');
+            console.log("hoverExpandStatus:" + hoverExpandStatus + "; NavExpand:" + NavExpand)
+            if (hoverExpandStatus == true && NavExpand == false) {
+                sideNav.addEventListener('mouseenter', expandSideNav);
+                sideNav.addEventListener('mouseleave', collapseSideNav);
+            } else {
+                sideNav.removeEventListener('mouseenter', expandSideNav);
+                sideNav.removeEventListener('mouseleave', collapseSideNav);
+            }
+        }
+
+        function expandSideNav() {
+            this.classList.remove('sidenav-collapsed');
+            handleExpandedState();
+        }
+
+        function collapseSideNav() {
+            this.classList.add('sidenav-collapsed');
+            handleCollapsedState();
+        }
+
+
+        function handleExpandedState() {
+            const sideNav = document.getElementById('sideNav');
+            if (!toggleSideNav.dontCollapseAccordions) {
+                const activeSecondary = document.querySelector('.nav-item-secondary.active');
+                if (activeSecondary) {
+                    const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
+                    if (parentAccordion && parentAccordion.classList.contains('accordion')) {
+                        parentAccordion.click();
+                    }
+                }
+            }
+        }
+
+        function handleCollapsedState() {
+            const sideNav = document.getElementById('sideNav');
+            if (sideNav.classList.contains('sidenav-collapsed') && !toggleSideNav.dontCollapseAccordions) {
+                const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
+                const allChevrons = document.querySelectorAll('.chevron-down');
+                allAccordions.forEach(accordion => accordion.classList.remove('accordion-expand'));
+                allChevrons.forEach(chevron => chevron.classList.remove('chevron-rotate'));
             }
         }
     </script>
