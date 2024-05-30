@@ -755,77 +755,80 @@
                     });
                 }
             }
-        });
 
-
-
-
-        document.getElementById('hoverExpand').addEventListener('change', function () {
-            updateURLParameter('hoverExpand', this.checked ? 'yes' : 'no');
-            const sideNav = document.getElementById('sideNav');
-            if (this.checked) {
-                sideNav.addEventListener('mouseenter', expandSideNav);
-                sideNav.addEventListener('mouseleave', collapseSideNav);
-            } else {
-                sideNav.removeEventListener('mouseenter', expandSideNav);
-                sideNav.removeEventListener('mouseleave', collapseSideNav);
-            }
-        });
-
-        function expandSideNav() {
-            this.classList.remove('sidenav-collapsed');
-            handleExpandedState();
-        }
-
-        function collapseSideNav() {
-            this.classList.add('sidenav-collapsed');
-            handleCollapsedState();
-        }
-
-        function handleExpandedState() {
-            const sideNav = document.getElementById('sideNav');
-            if (!toggleSideNav.dontCollapseAccordions) {
-                const activeSecondary = document.querySelector('.nav-item-secondary.active');
-                if (activeSecondary) {
-                    const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
-                    if (parentAccordion && parentAccordion.classList.contains('accordion')) {
-                        parentAccordion.click();
-                    }
+            document.getElementById('hoverExpand').addEventListener('change', function () {
+                updateURLParameter('hoverExpand', this.checked ? 'yes' : 'no');
+                const sideNav = document.getElementById('sideNav');
+                if (this.checked) {
+                    sideNav.addEventListener('mouseenter', expandSideNav);
+                    sideNav.addEventListener('mouseleave', collapseSideNav);
+                } else {
+                    sideNav.removeEventListener('mouseenter', expandSideNav);
+                    sideNav.removeEventListener('mouseleave', collapseSideNav);
                 }
-            }
-        }
-
-        function handleCollapsedState() {
-            const sideNav = document.getElementById('sideNav');
-            if (sideNav.classList.contains('sidenav-collapsed') && !toggleSideNav.dontCollapseAccordions) {
-                const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
-                const allChevrons = document.querySelectorAll('.chevron-down');
-                allAccordions.forEach(accordion => accordion.classList.remove('accordion-expand'));
-                allChevrons.forEach(chevron => chevron.classList.remove('chevron-rotate'));
-            }
-        }
-
-        function toggleSideNav() {
-            const sideNav = document.getElementById('sideNav');
-            sideNav.classList.toggle('sidenav-collapsed');
-            document.querySelectorAll('.tooltip').forEach(tooltip => {
-                tooltip.style.opacity='0';
-                tooltip.style.display = 'none';
             });
-            if (!toggleSideNav.dontCollapseAccordions) {
+            function expandSideNav() {
+                this.classList.remove('sidenav-collapsed');
+                handleExpandedState();
+            }
+
+            function collapseSideNav() {
+                this.classList.add('sidenav-collapsed');
                 handleCollapsedState();
             }
 
-            if (!sideNav.classList.contains('sidenav-collapsed')) {
-                const activeSecondary = document.querySelector('.nav-item-secondary.active');
-                if (activeSecondary && !toggleSideNav.dontCollapseAccordions) {
-                    const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
-                    if (parentAccordion && parentAccordion.classList.contains('accordion')) {
-                        parentAccordion.click();
+            function handleExpandedState() {
+                const sideNav = document.getElementById('sideNav');
+                if (!toggleSideNav.dontCollapseAccordions) {
+                    const activeSecondary = document.querySelector('.nav-item-secondary.active');
+                    if (activeSecondary) {
+                        const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
+                        if (parentAccordion && parentAccordion.classList.contains('accordion')) {
+                            parentAccordion.click();
+                        }
                     }
                 }
             }
-        }
+
+            function handleCollapsedState() {
+                const sideNav = document.getElementById('sideNav');
+                if (sideNav.classList.contains('sidenav-collapsed') && !toggleSideNav.dontCollapseAccordions) {
+                    const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
+                    const allChevrons = document.querySelectorAll('.chevron-down');
+                    allAccordions.forEach(accordion => accordion.classList.remove('accordion-expand'));
+                    allChevrons.forEach(chevron => chevron.classList.remove('chevron-rotate'));
+                }
+            }
+
+            function toggleSideNav() {
+                const sideNav = document.getElementById('sideNav');
+                sideNav.classList.toggle('sidenav-collapsed');
+                document.querySelectorAll('.tooltip').forEach(tooltip => {
+                    tooltip.style.opacity = '0';
+                    tooltip.style.display = 'none';
+                });
+                if (!toggleSideNav.dontCollapseAccordions) {
+                    handleCollapsedState();
+                }
+
+                if (!sideNav.classList.contains('sidenav-collapsed')) {
+                    const activeSecondary = document.querySelector('.nav-item-secondary.active');
+                    if (activeSecondary && !toggleSideNav.dontCollapseAccordions) {
+                        const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
+                        if (parentAccordion && parentAccordion.classList.contains('accordion')) {
+                            parentAccordion.click();
+                        }
+                    }
+                }
+            }
+        });
+
+
+
+
+
+
+
 
 
         function setActive(element) {
