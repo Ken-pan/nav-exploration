@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Nav</title>
+    <link rel="stylesheet" href="/tailwind.css">
+</head>
+<body class="pt-[72px] h-screen">
+    <header class="fixed top-0 w-full h-[72px] bg-white border-b border-gray-200 flex items-center">
+        <div class="w-full h-18 px-8 flex justify-between items-center">
+            <!-- Logo Section -->
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <button id="in-header-btn" class="p-2 mr-4 rounded-full hover:bg-gray-100 -ml-2" onclick="toggleSideNav()"><img src="./assets/img/menu-01.png" alt="menu" class="w-6 h-6"></button>
+                    <img src="/assets/img/Logo.png" alt="ingram micro logo" class="w-[246px] h-[32px] flex flex-col">
+                </div>
+            </div>
+            <!-- Search and Icons Section -->
+            <div class="flex items-center gap-4">
+                <div class="w-120 flex flex-col gap-2">
+                    <div class="h-11 bg-white rounded-full flex items-center">
+                        <div class="w-full px-4 py-3 bg-gray-50 flex items-center gap-2 rounded-full">
+                            <div class="w-5 h-5 relative"><img src="/assets/img/search-lg.png" alt="search icon"></div>
+                            <div class="flex-grow text-gray-500 text-sm font-normal leading-tight">
+                                Search by keyword(s), VPN or IM SKU
+                            </div>
+                            <div class="w-5 h-5 relative"><img src="/assets/img/sliders-01.png" alt="filter icon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="pl-4 flex items-start gap-1">
+                        <div class=" p-2.5 bg-white rounded-full flex items-center">
+                            <img class="w-5 h-5 relative" src="/assets/img/heart-rounded.png" alt="heart icon">
+                        </div>
+                        <div class=" p-2.5 bg-white rounded-full flex items-center">
+                            <img class="w-5 h-5 relative" src="/assets/img/Sidebar navigation/shopping-cart-03.png" alt="cart icon">
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center">
+                            <img class="w-10 h-10 relative rounded-full" src="/assets/img/Dropdown.png" alt="avatar icon">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <div class="flex w-full h-full">
+        <nav id="sideNav" class="bg-gray-50 text-gray-700 border-r border-gray-200 duration-300 h-full flex flex-col justify-between relative">
+            <div id="naviation-top" class="pt-6 gap-2 h-full overflow-scroll w-full flex flex-col">
+                <button class="nav-item-primary gap-1 w-full flex pr-2 pl-1 active">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/home-05.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Home</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/bar-chart-square-02.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Performance & Insights</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Business health</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Sales Pipline</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Partner Breakdown</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Segment Analysis</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Reporting</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Business Goal Tracker</div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/tag-01.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Catalog</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Overview</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">All Products/Items</div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/shopping-cart-03.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Quotes & Deals</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Quotes</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Deals</div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nav-item-primary gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/truck-01.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Orders</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/clock-rewind.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Subscriptions & Renewals</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Subscriptions</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Renewals</div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/package.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Inventory</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Distributor Managed</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Vendor Managed</div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/target-04.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Marketing</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Performance Overview</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Marketing Plan</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Marketing Activity Tracker</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Content</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Storefront</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Billing History</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Contract Status</div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/credit-card-refresh.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Customer Support</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Returns</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Suppor Tickets</div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/home-05.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Accounting</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <div class="secondary-item-wrapper">
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Payment History</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Trial Balance</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Debit Memos</div>
+                        </div>
+                    </button>
+                    <button class="nav-item-secondary gap-1 w-full flex pr-2 pl-1">
+                        <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                        <div class="nav-item-content px-3 py-2 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                            <div class="nav-item-text pl-9 w-full text-gray-700 text-sm font-medium text-start ">Fees & Penalties</div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div id="naviation-bottom" class="pb-6 pt-1 border-t border-gray-200 w-full flex justify-center items-center">
+                <button class="nav-item-primary gap-1 w-full flex pr-2 pl-1">
+                    <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
+                    <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
+                        <img src="./assets/img/Sidebar navigation/help-circle.png" alt="Home" class="w-6 h-6 max-w-6">
+                        <div class="nav-item-text w-full text-gray-700 text-sm font-medium text-start">Knowledge center</div>
+                        <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
+                    </div>
+                </button>
+                <button id="in-sidebar-btn" class="p-2 w-10 h-10 mx-2 rounded-full hover:bg-gray-100" onclick="toggleSideNav()"><img src="./assets/img/chevron-left-double.png" alt="menu" class="w-6 h-6"></button>
+            </div>
+            <button id="tag-btn" class="flex justify-center items-center w-8 h-9 absolute -right-8 bottom-6 rounded-r-2xl bg-gray-100 hover:bg-gray-200 border border-gray-200" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-6 h-6 mr-1"></button>
+            <button id="fab" class="flex justify-center items-center w-8 h-8 absolute -right-4 bottom-6 rounded-full bg-white hover:bg-gray-100 border border-gray-200" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-6 h-6"></button>
+
+        </nav>
+        <main class="flex-grow p-4">
+
+        </main>
+        <menu class="bg-gray-800 text-gray-100 absolute w-[400px] h-[500px] bottom-2 right-2 rounded-lg border-gray-300 border p-4">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg font-bold  text-gray-25">Interaction Setting</h2>
+                <button id="close-menu-btn" class=" w-8 h-8 flex justify-center items-center p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">X</button>
+                <button id="open-menu-btn" class="hidden absolute top-0 right-0 w-12 h-12 bg-gray-700 text-white rounded-full items-center justify-center">
+                    <img src="/assets/img/setting.png" alt="Settings" class="w-6 h-6">
+                </button>
+            </div>
+
+
+            <div class="mb-6">
+                <label class="block text-sm mb-2">01 | Sidenav Collapse Button</label>
+                <div class="grid grid-cols-2 gap-1">
+                    <input type="radio" id="collapse-header" name="collapseButtonPosition" value="header" class="custom-radio">
+                    <label for="collapse-header">Inside header</label>
+
+                    <input type="radio" id="collapse-sidenavBottom" name="collapseButtonPosition" value="sidenavBottom" class="custom-radio">
+                    <label for="collapse-sidenavBottom">Inside sidenav bottom</label>
+
+                    <input type="radio" id="collapse-tagBottom" name="collapseButtonPosition" value="tagBottom" class="custom-radio">
+                    <label for="collapse-tagBottom">Tag bottom</label>
+
+                    <input type="radio" id="collapse-fabTop" name="collapseButtonPosition" value="fabTop" class="custom-radio">
+                    <label for="collapse-fabTop">Fab top</label>
+
+                    <input type="radio" id="collapse-fabMiddle" name="collapseButtonPosition" value="fabMiddle" class="custom-radio">
+                    <label for="collapse-fabMiddle">Fab middle</label>
+
+                    <input type="radio" id="collapse-fabBottom" name="collapseButtonPosition" value="fabBottom" class="custom-radio">
+                    <label for="collapse-fabBottom">Fab bottom</label>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm mb-2">02 | Accordion in Collapsed SideNav</label>
+                <div class="grid grid-cols-2 gap-1">
+                    <input type="radio" id="accordion-popup" name="accordionAction" value="popup" class="custom-radio">
+                    <label for="accordion-popup">Open popup menu</label>
+
+                    <input type="radio" id="accordion-expandTemporary" name="accordionAction" value="expandTemporary" class="custom-radio">
+                    <label for="accordion-expandTemporary">Expand temporarily</label>
+
+                    <input type="radio" id="accordion-expand" name="accordionAction" value="expand" class="custom-radio">
+                    <label for="accordion-expand">Expand</label>
+                </div>
+            </div>
+
+            <!-- Hover to Expand Collapsed Sidenav -->
+            <div class="mb-6 flex justify-between items-start">
+                <label class="block text-sm mb-2">03 | Hover to Expand Collapsed Sidenav</label>
+                <div class="flex items-center">
+                    <label class="switch">
+                        <input type="checkbox" id="hoverExpand" name="hoverExpand" value="yes">
+                        <span class="slider round"></span>
+                    </label>
+
+                </div>
+            </div>
+
+            <!-- Don't Collapse Accordion When Collapsing Sidenav -->
+            <!-- <div class="mb-6 flex justify-between items-start">
+                <label class="block text-sm mb-2">04 | Don't Collapse Accordion When Collapsing Sidenav</label>
+                <div class="flex items-center">
+                    <label class="switch">
+                        <input type="checkbox" id="dontCollapse" name="dontCollapse" value="yes">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div> -->
+
+            <!-- Auto Collapse Other Accordions -->
+            <div class="mb-6 flex justify-between items-start">
+                <label class="block text-sm mb-2">04 | Auto Collapse Other Accordions</label>
+                <div class="flex items-center">
+                    <label class="switch">
+                        <input type="checkbox" id="autoCollapse" name="autoCollapse" value="yes">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </menu>
+        <script>
+            const menu = document.querySelector("menu");
+            const closeMenuBtn = document.getElementById("close-menu-btn");
+            const openMenuBtn = document.getElementById("open-menu-btn");
+
+            closeMenuBtn.addEventListener("click", function () {
+                menu.classList.add("menu-collapsed");
+            });
+
+            openMenuBtn.addEventListener("click", function () {
+                menu.classList.remove("menu-collapsed");
+            });
+        </script>
+
+
+    </div>
+
+    <script>
+        let popupVisible = false;
+        let NavExpand = true;
+        let hoverExpandStatus = false;
+        let currentActive = null;
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let popupVisible = false;
+            const primaryButtons = document.querySelectorAll(".nav-item-primary");
+            const secondaryButtons = document.querySelectorAll(".nav-item-secondary");
+            const collapseButtonRadios = document.querySelectorAll('input[name="collapseButtonPosition"]');
+            const accordionActionRadios = document.querySelectorAll('input[name="accordionAction"]');
+
+            collapseButtonRadios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    updateButtonPosition(this.value);
+                    updateURLParameter('collapseBtnPosition', this.value);
+                });
+            });
+
+            accordionActionRadios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    updateURLParameter('accordionAction', this.value);
+                });
+            });
+
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const collapseButtonPositionurl = urlParams.get('collapseBtnPosition');
+            if (collapseButtonPositionurl) {
+                const radio = document.querySelector(`input[name="collapseButtonPosition"][value="${collapseButtonPositionurl}"]`);
+                if (radio) {
+                    radio.checked = true;
+                    updateButtonPosition(collapseButtonPositionurl);
+                }
+            }
+
+            function updateButtonPosition(position) {
+                const toggleSideNavButtons = {
+                    header: document.getElementById('in-header-btn'),
+                    sidenavBottom: document.getElementById('in-sidebar-btn'),
+                    tagBottom: document.getElementById('tag-btn'),
+                    fabTop: document.getElementById('fab'),
+                    fabMiddle: document.getElementById('fab'),
+                    fabBottom: document.getElementById('fab')
+                };
+
+                // Hide all buttons initially
+                Object.values(toggleSideNavButtons).forEach(button => button.style.display = 'none');
+
+                // Show the selected button
+                switch (position) {
+                    case 'header':
+                        toggleSideNavButtons.header.style.display = 'block';
+                        break;
+                    case 'sidenavBottom':
+                        toggleSideNavButtons.sidenavBottom.style.display = 'block';
+                        break;
+                    case 'tagBottom':
+                        toggleSideNavButtons.tagBottom.style.display = 'block';
+                        break;
+                    case 'fabTop':
+                        toggleSideNavButtons.fabTop.style.display = 'flex';
+                        toggleSideNavButtons.fabTop.style.top = '32px';
+                        toggleSideNavButtons.fabBottom.style.bottom = 'auto';
+                        break;
+                    case 'fabMiddle':
+                        toggleSideNavButtons.fabMiddle.style.display = 'flex';
+                        toggleSideNavButtons.fabMiddle.style.top = '48%';
+                        toggleSideNavButtons.fabBottom.style.bottom = 'auto';
+                        break;
+                    case 'fabBottom':
+                        toggleSideNavButtons.fabBottom.style.display = 'flex';
+                        toggleSideNavButtons.fabMiddle.style.top = 'auto';
+                        toggleSideNavButtons.fabBottom.style.bottom = '28px';
+                        break;
+                }
+            }
+
+            const accordionAction = urlParams.get('accordionAction');
+            if (accordionAction) {
+                const radio = document.querySelector(`input[name="accordionAction"][value="${accordionAction}"]`);
+                if (radio) {
+                    radio.checked = true;
+                }
+            }
+
+
+            const hoverExpand = urlParams.get('hoverExpand');
+            if (hoverExpand === 'yes') {
+                hoverExpandStatus = true
+                document.getElementById('hoverExpand').checked = true;
+                checkhoverExpandStatus()
+            } else {
+                hoverExpandStatus = false
+                document.getElementById('hoverExpand').checked = false;
+                checkhoverExpandStatus()
+            }
+
+            const dontCollapse = urlParams.get('dontCollapse');
+            if (dontCollapse === 'yes') {
+                document.getElementById('dontCollapse').checked = true;
+                toggleSideNav.dontCollapseAccordions = true;
+            }
+
+            const autoCollapse = urlParams.get('autoCollapse');
+            if (autoCollapse === 'yes') {
+                document.getElementById('autoCollapse').checked = true;
+                handleAccordionClick.autoCollapseOthers = true;
+            }
+
+
+            const homeButton = document.querySelector(".nav-item-primary:not(.accordion)");
+            if (homeButton) {
+                setActive(homeButton);
+            }
+
+            primaryButtons.forEach((button) => {
+                button.addEventListener("mouseenter", function () {
+                    if (document.getElementById('sideNav').classList.contains('sidenav-collapsed')) {
+                        showTooltip(this);
+                    }
+                });
+
+                button.addEventListener("mouseleave", function () {
+                    hideTooltip(this);
+                });
+
+                if (!button.classList.contains("accordion")) {
+                    button.addEventListener("click", function () {
+                        setActive(this);
+                        updateParentClasses();
+                    });
+                }
+            });
+
+            function showTooltip(element) {
+                if (popupVisible) return;
+                const tooltipText = element.querySelector(".nav-item-text").innerText;
+                let tooltip = element.querySelector(".tooltip");
+
+                if (!tooltip) {
+                    tooltip = document.createElement("div");
+                    tooltip.className = "tooltip";
+                    tooltip.innerText = tooltipText;
+                    element.appendChild(tooltip);
+                }
+
+                const rect = element.getBoundingClientRect();
+                tooltip.style.top = `${rect.top - 72}px`;
+                tooltip.style.left = `${rect.right + 4}px`;
+                tooltip.style.display = "block";
+            }
+
+            function hideTooltip(element) {
+                const tooltip = element.querySelector(".tooltip");
+                if (tooltip) {
+                    tooltip.style.display = "none";
+                }
+            }
+
+            secondaryButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    setActive(this);
+                    updateParentClasses();
+                });
+            });
+
+            function updateParentClasses() {
+                primaryButtons.forEach((button) => {
+                    const hasActiveChild = button.nextElementSibling && button.nextElementSibling.querySelector('.active');
+                    if (hasActiveChild) {
+                        button.classList.add('child-active');
+                    } else {
+                        button.classList.remove('child-active');
+                    }
+                });
+            }
+
+            updateParentClasses();
+
+            const accordions = document.querySelectorAll(".nav-item-primary.accordion");
+
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', function (event) {
+                    const action = document.querySelector('input[name="accordionAction"]:checked').value;
+                    handleAccordionClick.call(this, event, action);
+                });
+            });
+
+
+            document.querySelectorAll('input[name="accordionAction"]').forEach(radio => {
+                radio.addEventListener('change', function () {
+                    const action = this.value;
+                    updateURLParameter('accordionAction', action);
+                    accordions.forEach(accordion => {
+                        accordion.removeEventListener('click', accordionClickHandler); // Remove old handler
+                        accordion.addEventListener('click', function (event) {
+                            handleAccordionClick.call(this, event, action);
+                        });
+                    });
+                });
+            });
+
+
+            function handleAccordionClick(event, action) {
+                event.stopPropagation();
+                const sideNav = document.getElementById('sideNav');
+                var content = this.nextElementSibling;
+                var chevron = this.querySelector('.chevron-down');
+
+                if (sideNav.classList.contains('sidenav-collapsed')) {
+                    if (action === 'popup') {
+                        const popup = createOrGetPopup();
+                        fillPopupWithContent(content, event.currentTarget, this);
+                        setTimeout(() => {
+                            togglePopupVisibility(true);
+                        }, 0);
+                    } else if (action === 'expandTemporary') {
+                        sideNav.classList.remove('sidenav-collapsed');
+                        document.querySelectorAll('.tooltip').forEach(tooltip => {
+                            tooltip.style.display = 'none';
+                        });
+                        setTimeout(() => {
+                            content = this.nextElementSibling;
+                            chevron = this.querySelector('.chevron-down');
+                            content.classList.add('accordion-expand');
+                            chevron.classList.add('chevron-rotate');
+                        }, 0);
+                        setTimeout(() => {
+                            sideNav.classList.add('sidenav-collapsed');
+                            content.classList.remove('accordion-expand');
+                            chevron.classList.remove('chevron-rotate');
+                        }, 2400); // Adjust timing as needed
+                    } else if (action === 'expand') {
+                        document.querySelectorAll('.tooltip').forEach(tooltip => {
+                            tooltip.style.display = 'none';
+                        });
+                        sideNav.classList.remove('sidenav-collapsed');
+                         NavExpand = true;
+                        setTimeout(() => {
+                            content = this.nextElementSibling;
+                            chevron = this.querySelector('.chevron-down');
+                            content.classList.add('accordion-expand');
+                            chevron.classList.add('chevron-rotate');
+                        }, 0);
+                    }
+                } else {
+                    if (handleAccordionClick.autoCollapseOthers) {
+                        const allAccordions = document.querySelectorAll('.nav-item-primary.accordion');
+                        allAccordions.forEach(accordion => {
+                            const otherContent = accordion.nextElementSibling;
+                            const otherChevron = accordion.querySelector('.chevron-down');
+                            if (accordion !== this && otherContent) {
+                                otherContent.classList.remove('accordion-expand');
+                                otherChevron.classList.remove('chevron-rotate');
+                            }
+                        });
+                    }
+                    content.classList.toggle('accordion-expand');
+                    chevron.classList.toggle('chevron-rotate');
+                }
+            }
+
+            function accordionClickHandler(event) {
+                handleAccordionClick.call(this, event, document.getElementById('accordionAction').value);
+            }
+
+
+            // Close popup when clicking outside of it
+            document.addEventListener('click', function (event) {
+                const popup = document.getElementById('popup-wrapper');
+                if (popup) {
+                    togglePopupVisibility(false);
+                }
+            });
+
+
+            document.getElementById('autoCollapse').addEventListener('change', function () {
+                handleAccordionClick.autoCollapseOthers = this.checked;
+                updateURLParameter('autoCollapse', this.checked ? 'yes' : 'no');
+            });
+
+
+            function updateURLParameter(param, value) {
+                const url = new URL(window.location);
+                url.searchParams.set(param, value);
+                window.history.replaceState({}, '', url);
+            }
+
+            function createOrGetPopup() {
+                let popup = document.getElementById('popup-wrapper');
+                if (!popup) {
+                    popup = document.createElement('div');
+                    popup.id = 'popup-wrapper';
+                    popup.className = 'popup-wrapper';
+                    document.body.appendChild(popup);
+                }
+                return popup;
+            }
+
+            function fillPopupWithContent(content, target, originalAccordion) {
+                const popup = document.getElementById('popup-wrapper');
+                popup.innerHTML = content.innerHTML;
+                const rect = target.getBoundingClientRect();
+                popup.style.top = `${rect.top}px`;
+                popup.style.left = `${rect.right + 4}px`;
+
+                // Add event listeners to the buttons inside the popup
+                const popupButtons = popup.querySelectorAll('.nav-item-secondary');
+                const originalButtons = originalAccordion.nextElementSibling.querySelectorAll('.nav-item-secondary');
+
+                popupButtons.forEach((button, index) => {
+                    button.addEventListener('click', function () {
+                        setActive(originalButtons[index]); // Set corresponding original button as active
+                        togglePopupVisibility(false); // Hide popup after selecting
+                        updateParentClasses();
+                    });
+                });
+            }
+
+            function togglePopupVisibility(show) {
+                const popup = document.getElementById('popup-wrapper');
+                if (show) {
+                    popup.classList.add('popup-visible');
+                    popupVisible = true;
+                    document.querySelectorAll('.tooltip').forEach(tooltip => {
+                        tooltip.style.display = 'none';
+                    });
+                } else {
+                    popup.classList.remove('popup-visible');
+                    popupVisible = false;
+                    document.querySelectorAll('.tooltip').forEach(tooltip => {
+                        tooltip.style.display = 'none';
+                    });
+                }
+            }
+
+            document.getElementById('hoverExpand').addEventListener('change', function () {
+                updateURLParameter('hoverExpand', this.checked ? 'yes' : 'no');
+                const sideNav = document.getElementById('sideNav');
+                hoverExpandStatus = this.checked ? true : false;
+                checkhoverExpandStatus();
+            });
+
+            function handleExpandedState() {
+                const sideNav = document.getElementById('sideNav');
+                if (!toggleSideNav.dontCollapseAccordions) {
+                    const activeSecondary = document.querySelector('.nav-item-secondary.active');
+                    if (activeSecondary) {
+                        const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
+                        if (parentAccordion && parentAccordion.classList.contains('accordion')) {
+                            parentAccordion.click();
+                        }
+                    }
+                }
+            }
+
+            function handleCollapsedState() {
+                const sideNav = document.getElementById('sideNav');
+
+                if (sideNav.classList.contains('sidenav-collapsed') && !toggleSideNav.dontCollapseAccordions) {
+                    const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
+                    const allChevrons = document.querySelectorAll('.chevron-down');
+                    allAccordions.forEach(accordion => accordion.classList.remove('accordion-expand'));
+                    allChevrons.forEach(chevron => chevron.classList.remove('chevron-rotate'));
+                }
+            }
+
+        });
+
+
+
+
+        function setActive(element) {
+            if (currentActive) {
+                currentActive.classList.remove("active");
+            }
+            element.classList.add("active");
+            currentActive = element;
+        }
+
+
+        function toggleSideNav() {
+            const sideNav = document.getElementById('sideNav');
+            sideNav.classList.toggle('sidenav-collapsed');
+
+            document.querySelectorAll('.tooltip').forEach(tooltip => {
+                tooltip.style.display = 'none';
+            });
+
+            if (sideNav.classList.contains('sidenav-collapsed')) {
+                NavExpand = false;
+                checkhoverExpandStatus();
+            } else {
+                NavExpand = true;
+                checkhoverExpandStatus();
+            }
+
+
+
+            if (sideNav.classList.contains('sidenav-collapsed')) {
+                const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
+                const allChevrons = document.querySelectorAll('.chevron-down');
+
+                allAccordions.forEach(accordion => {
+                    accordion.classList.remove('accordion-expand');
+                });
+                allChevrons.forEach(chevron => {
+                    chevron.classList.remove('chevron-rotate');
+                });
+            } else {
+                // Check for active secondary items and open their parent accordion
+                const activeSecondary = document.querySelector('.nav-item-secondary.active');
+                if (activeSecondary) {
+                    const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
+                    if (parentAccordion && parentAccordion.classList.contains('accordion')) {
+                        parentAccordion.click();
+                    }
+                }
+            }
+        }
+
+        function checkhoverExpandStatus() {
+            const sideNav = document.getElementById('sideNav');
+            if (hoverExpandStatus == true && NavExpand == false) {
+                sideNav.addEventListener('mouseenter', expandSideNav);
+                sideNav.addEventListener('mouseleave', collapseSideNav);
+            } else {
+                sideNav.removeEventListener('mouseenter', expandSideNav);
+                sideNav.removeEventListener('mouseleave', collapseSideNav);
+            }
+        }
+
+        function expandSideNav() {
+            this.classList.remove('sidenav-collapsed');
+            handleExpandedState();
+        }
+
+        function collapseSideNav() {
+            this.classList.add('sidenav-collapsed');
+            handleCollapsedState();
+        }
+
+
+        function handleExpandedState() {
+            const sideNav = document.getElementById('sideNav');
+            if (!toggleSideNav.dontCollapseAccordions) {
+                const activeSecondary = document.querySelector('.nav-item-secondary.active');
+                if (activeSecondary) {
+                    const parentAccordion = activeSecondary.closest('.secondary-item-wrapper').previousElementSibling;
+                    if (parentAccordion && parentAccordion.classList.contains('accordion')) {
+                        parentAccordion.click();
+                    }
+                }
+            }
+        }
+
+        function handleCollapsedState() {
+            const sideNav = document.getElementById('sideNav');
+            if (sideNav.classList.contains('sidenav-collapsed') && !toggleSideNav.dontCollapseAccordions) {
+                const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
+                const allChevrons = document.querySelectorAll('.chevron-down');
+                allAccordions.forEach(accordion => accordion.classList.remove('accordion-expand'));
+                allChevrons.forEach(chevron => chevron.classList.remove('chevron-rotate'));
+            }
+        }
+    </script>
+</body>
+</html>
