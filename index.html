@@ -41,14 +41,16 @@
                     <div class="flex flex-col items-center">
                         <div class="w-10 h-10 rounded-full flex items-center justify-center">
                             <img class="w-10 h-10 relative rounded-full" src="/assets/img/Dropdown.png" alt="avatar icon">
-                            </i>
+
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </header>
     <div class="flex w-full h-full">
         <nav id="sideNav" class="bg-gray-50 text-gray-700 border-r border-gray-200 duration-300 h-full flex flex-col justify-between relative">
+            <div id="hover-area" class="absolute top-0 -right-4 h-full w-4"></div>
             <div id="naviation-top" class="pt-6 gap-2 h-full overflow-scroll w-full flex flex-col">
                 <button class="nav-item-primary gap-1 w-full flex pr-2 pl-1 active">
                     <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
@@ -322,13 +324,25 @@
                 <button id="in-sidebar-btn" class="p-2 w-10 h-10 mx-2 rounded-full hover:bg-gray-100" onclick="toggleSideNav()"><img src="./assets/img/chevron-left-double.png" alt="menu" class="w-6 h-6"></button>
             </div>
             <button id="tag-btn" class="flex justify-center items-center w-8 h-9 absolute -right-8 bottom-6 rounded-r-2xl bg-gray-100 hover:bg-gray-200 border border-gray-200" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-6 h-6 mr-1"></button>
-            <button id="fab" class="flex justify-center items-center w-8 h-8 absolute -right-4 bottom-6 rounded-full bg-white hover:bg-gray-100 border border-gray-200" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-6 h-6"></button>
+            <button id="fab" class=" flex justify-center items-center w-8 h-8 absolute -right-4 bottom-6 rounded-full bg-white hover:bg-gray-100 border border-gray-200 shadow-sm" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-5 h-5"></button>
 
         </nav>
-        <main class="flex-grow p-4">
-
+        <main class="p-8 w-full full">
+            <div class="flex items-center text-gray-500 space-x-1" id="breadcrumb">
+                <div class="flex items-center space-x-1 hover:text-gray-700 w-7 h-7">
+                    <img src="./assets/img/Sidebar navigation/home-05.png" alt="home" class="w-5 h-5">
+                </div>
+                <img src="./assets/img/chevron-left.png" alt="chevron" class="h-4 w-4 rotate-180 opacity-40">
+                <div id="path-1" class="text-[#4B5565] text-sm px-1 py-2">Performance & Insights</div>
+                <img src="./assets/img/chevron-left.png" alt="chevron" class="h-4 w-4 rotate-180 opacity-40">
+                <span id="path-2" class="font-semibold text-[#364152] text-sm px-1 py-2">Business Health</span>
+            </div>
+            <h1 id="title" class="mt-2 text-xl font-semibold text-[#131313]">Business Health</h1>
+            <div class="w-full h-[700px] flex justify-center items-center mt-8 rounded-lg bg-[#F5F5F5] border-[#CCCCCC] border">
+                <p class="text-[#666666] text-lg font-normal">This is a placeholder</p>
+            </div>
         </main>
-        <menu class="bg-gray-800 text-gray-100 absolute w-[400px] h-[500px] bottom-2 right-2 rounded-lg border-gray-300 border p-4">
+        <menu class="bg-gray-800 text-gray-100 absolute w-[400px] h-[500px] bottom-2 right-2 rounded-lg border-gray-300 border p-4" id="design-menu">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-lg font-bold  text-gray-25">Interaction Setting</h2>
                 <button id="close-menu-btn" class=" w-8 h-8 flex justify-center items-center p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">X</button>
@@ -339,53 +353,62 @@
 
 
             <div class="mb-6">
-                <label class="block text-sm mb-2">01 | Sidenav Collapse Button</label>
+
+                <div class="mb-6">
+                    <label class="block text-sm mb-2">01 | Accordion in Collapsed SideNav</label>
+                    <div class="grid grid-cols-2 gap-1">
+                        <input type="radio" id="accordion-popup" name="accordionAction" value="popup" class="custom-radio">
+                        <label for="accordion-popup">Open popup menu</label>
+
+                        <input type="radio" id="accordion-expandTemporary" name="accordionAction" value="expandTemporary" class="custom-radio">
+                        <label for="accordion-expandTemporary">Expand temporarily</label>
+
+                        <!-- <input type="radio" id="accordion-expand" name="accordionAction" value="expand" class="custom-radio">
+                        <label for="accordion-expand">Expand permanently</label> -->
+
+                        <input type="radio" id="hoverExpand" name="accordionAction" value="hoverExpand" class="custom-radio">
+                        <label for="hoverExpand">Hover to Expand</label>
+                    </div>
+                </div>
+
+                <label class="block text-sm mb-2">02 | Sidenav Collapse Button</label>
                 <div class="grid grid-cols-2 gap-1">
                     <input type="radio" id="collapse-header" name="collapseButtonPosition" value="header" class="custom-radio">
-                    <label for="collapse-header">Inside header</label>
+                    <label for="collapse-header">Top Left (In-header)</label>
 
-                    <input type="radio" id="collapse-sidenavBottom" name="collapseButtonPosition" value="sidenavBottom" class="custom-radio">
-                    <label for="collapse-sidenavBottom">Inside sidenav bottom</label>
+                    <!-- <input type="radio" id="collapse-sidenavBottom" name="collapseButtonPosition" value="sidenavBottom" class="custom-radio">
+                    <label for="collapse-sidenavBottom">Inside sidenav bottom</label> -->
 
                     <input type="radio" id="collapse-tagBottom" name="collapseButtonPosition" value="tagBottom" class="custom-radio">
-                    <label for="collapse-tagBottom">Tag bottom</label>
+                    <label for="collapse-tagBottom">Bottom Left (Small Tag)</label>
 
                     <input type="radio" id="collapse-fabTop" name="collapseButtonPosition" value="fabTop" class="custom-radio">
-                    <label for="collapse-fabTop">Fab top</label>
+                    <label for="collapse-fabTop">FAB-Top</label>
 
                     <input type="radio" id="collapse-fabMiddle" name="collapseButtonPosition" value="fabMiddle" class="custom-radio">
-                    <label for="collapse-fabMiddle">Fab middle</label>
+                    <label for="collapse-fabMiddle">FAB-Middle</label>
 
                     <input type="radio" id="collapse-fabBottom" name="collapseButtonPosition" value="fabBottom" class="custom-radio">
-                    <label for="collapse-fabBottom">Fab bottom</label>
+                    <label for="collapse-fabBottom">FAB-Bottom</label>
                 </div>
             </div>
 
-            <div class="mb-6">
-                <label class="block text-sm mb-2">02 | Accordion in Collapsed SideNav</label>
-                <div class="grid grid-cols-2 gap-1">
-                    <input type="radio" id="accordion-popup" name="accordionAction" value="popup" class="custom-radio">
-                    <label for="accordion-popup">Open popup menu</label>
-
-                    <input type="radio" id="accordion-expandTemporary" name="accordionAction" value="expandTemporary" class="custom-radio">
-                    <label for="accordion-expandTemporary">Expand temporarily</label>
-
-                    <input type="radio" id="accordion-expand" name="accordionAction" value="expand" class="custom-radio">
-                    <label for="accordion-expand">Expand</label>
-                </div>
+            <div>
+                <p>Note: FAB is now automatically hidden and will be displayed when hovering over the navigation bar.</p>
             </div>
 
-            <!-- Hover to Expand Collapsed Sidenav -->
-            <div class="mb-6 flex justify-between items-start">
+
+
+
+            <!-- <div class="mb-6 flex justify-between items-start">
                 <label class="block text-sm mb-2">03 | Hover to Expand Collapsed Sidenav</label>
                 <div class="flex items-center">
                     <label class="switch">
                         <input type="checkbox" id="hoverExpand" name="hoverExpand" value="yes">
                         <span class="slider round"></span>
                     </label>
-
                 </div>
-            </div>
+            </div> -->
 
             <!-- Don't Collapse Accordion When Collapsing Sidenav -->
             <!-- <div class="mb-6 flex justify-between items-start">
@@ -399,7 +422,7 @@
             </div> -->
 
             <!-- Auto Collapse Other Accordions -->
-            <div class="mb-6 flex justify-between items-start">
+            <!-- <div class="mb-6 flex justify-between items-start">
                 <label class="block text-sm mb-2">04 | Auto Collapse Other Accordions</label>
                 <div class="flex items-center">
                     <label class="switch">
@@ -407,7 +430,7 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
-            </div>
+            </div> -->
         </menu>
         <script>
             const menu = document.querySelector("menu");
@@ -421,6 +444,10 @@
             openMenuBtn.addEventListener("click", function () {
                 menu.classList.remove("menu-collapsed");
             });
+
+            menu.addEventListener("mouseleave", function () {
+                location.reload();
+            });
         </script>
 
 
@@ -431,6 +458,7 @@
         let NavExpand = true;
         let hoverExpandStatus = false;
         let currentActive = null;
+        let hoverTimer;
 
 
 
@@ -441,6 +469,129 @@
             const collapseButtonRadios = document.querySelectorAll('input[name="collapseButtonPosition"]');
             const accordionActionRadios = document.querySelectorAll('input[name="accordionAction"]');
 
+            const urlParams = new URLSearchParams(window.location.search);
+            const breadcrumb = document.getElementById('breadcrumb');
+            const title = document.getElementById('title');
+            const path1Element = document.getElementById('path-1');
+            const path2Element = document.getElementById('path-2');
+
+
+            primaryButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const primaryText = this.querySelector('.nav-item-text').innerText;
+                    const hasSubTabs = this.nextElementSibling && this.nextElementSibling.classList.contains('secondary-item-wrapper');
+
+                    if (primaryText === "Home") {
+                        breadcrumb.style.display = "none";
+                        title.innerText = primaryText;
+                        path1Element.innerText = '';
+                        path2Element.innerText = '';
+                        updateURLParameter('path1', "Home");
+                        updateURLParameter('path2', 'N/A');
+                        location.reload()
+                    } else if (!hasSubTabs) {
+                        setTimeout(() => {
+                            breadcrumb.style.display = "flex";
+                        }, 20);
+                        path1Element.innerText = primaryText;
+                        title.innerText = primaryText;
+                        path2Element.style.display = "none";
+                        updateURLParameter('path1', path1Element.innerText);
+                        updateURLParameter('path2', 'N/A');
+                        location.reload()
+                    }
+                });
+            });
+
+            secondaryButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    setTimeout(() => {
+                        breadcrumb.style.display = "flex";
+                        path2Element.style.display = "inline";
+                    }, 20);
+                    const primaryText = this.closest('.secondary-item-wrapper').previousElementSibling.querySelector('.nav-item-text').innerText;
+                    const secondaryText = this.querySelector('.nav-item-text').innerText;
+                    updateMainContent(primaryText, secondaryText);
+                    updateURLParameter('path1', primaryText);
+                    updateURLParameter('path2', secondaryText);
+                    location.reload()
+                });
+            });
+
+            preloadNavExpand = urlParams.get('NavExpand');
+            if (preloadNavExpand === 'false') {
+                console.log('close!')
+                toggleSideNav()
+            }
+
+            const hidemenu = urlParams.get('HideMenu');
+            if (hidemenu === 'true') {
+                document.querySelector("#design-menu").style.display = 'none';
+            }
+
+            const path1 = urlParams.get('path1');
+            const path2 = urlParams.get('path2');
+
+            if (path1) {
+                if (path1 === "Home") {
+                    breadcrumb.style.display = "none";
+                    title.innerText = path1;
+                    path1Element.innerText = '';
+                    path2Element.innerText = '';
+                } else {
+                    breadcrumb.style.display = "flex";
+                    updateMainContent(path1, path2);
+                }
+                expandNavElements(path1, path2);
+            }
+
+            function updateMainContent(path1, path2 = null) {
+                path1Element.innerText = path1;
+                if (!path2 === 'N/A') {
+                    path2Element.innerText = path2;
+                    title.innerText = path2;
+                } else {
+                    path2Element.innerText = '';
+                    title.innerText = path1;
+                }
+            }
+
+            const homeButton = document.querySelector(".nav-item-primary:not(.accordion)");
+
+            function expandNavElements(path1, path2) {
+                const primaryButtons = document.querySelectorAll(".nav-item-primary");
+                const secondaryButtons = document.querySelectorAll(".nav-item-secondary");
+
+                // 清除所有活动状态
+                primaryButtons.forEach(button => button.classList.remove('active'));
+                secondaryButtons.forEach(button => button.classList.remove('active'));
+
+                // 设置主导航项的活动状态
+                primaryButtons.forEach(button => {
+                    const primaryText = button.querySelector('.nav-item-text').innerText;
+                    if (primaryText === path1) {
+                        const secondaryWrapper = button.nextElementSibling;
+                        if (!secondaryWrapper.classList.contains('secondary-item-wrapper')) {
+                            setActive(button);
+                        }
+                        if (secondaryWrapper && secondaryWrapper.classList.contains('secondary-item-wrapper')) {
+                            secondaryWrapper.classList.add('accordion-expand');
+                            if (path2) {
+                                console.log('check!')
+                                const subButtons = secondaryWrapper.querySelectorAll('.nav-item-secondary');
+                                subButtons.forEach(subButton => {
+                                    const secondaryText = subButton.querySelector('.nav-item-text').innerText;
+                                    if (secondaryText === path2) {
+                                        setActive(subButton);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+
+
             collapseButtonRadios.forEach(radio => {
                 radio.addEventListener('change', function () {
                     updateButtonPosition(this.value);
@@ -450,12 +601,26 @@
 
             accordionActionRadios.forEach(radio => {
                 radio.addEventListener('change', function () {
-                    updateURLParameter('accordionAction', this.value);
+                    const action = this.value;
+                    updateURLParameter('accordionAction', action);
+                    if (action === 'hoverExpand') {
+                        hoverExpandStatus = true;
+                        checkhoverExpandStatus();
+                    } else {
+                        hoverExpandStatus = false;
+                        removeHoverExpandEvents();
+                    }
                 });
             });
 
+            function removeHoverExpandEvents() {
+                const sideNav = document.getElementById('sideNav');
+                sideNav.removeEventListener('mouseenter', expandSideNav);
+                sideNav.removeEventListener('mouseleave', collapseSideNav);
+            }
 
-            const urlParams = new URLSearchParams(window.location.search);
+
+
 
             const collapseButtonPositionurl = urlParams.get('collapseBtnPosition');
             if (collapseButtonPositionurl) {
@@ -492,7 +657,7 @@
                         break;
                     case 'fabTop':
                         toggleSideNavButtons.fabTop.style.display = 'flex';
-                        toggleSideNavButtons.fabTop.style.top = '32px';
+                        toggleSideNavButtons.fabTop.style.top = '48px';
                         toggleSideNavButtons.fabBottom.style.bottom = 'auto';
                         break;
                     case 'fabMiddle':
@@ -514,18 +679,17 @@
                 if (radio) {
                     radio.checked = true;
                 }
-            }
-
-
-            const hoverExpand = urlParams.get('hoverExpand');
-            if (hoverExpand === 'yes') {
-                hoverExpandStatus = true
-                document.getElementById('hoverExpand').checked = true;
-                checkhoverExpandStatus()
-            } else {
-                hoverExpandStatus = false
-                document.getElementById('hoverExpand').checked = false;
-                checkhoverExpandStatus()
+                if (accordionAction === 'hoverExpand') {
+                    hoverExpandStatus = true;
+                    checkhoverExpandStatus();
+                    handleExpandedState();
+                    handleCollapsedState();
+                } else {
+                    hoverExpandStatus = false;
+                    checkhoverExpandStatus();
+                    handleExpandedState();
+                    handleCollapsedState();
+                }
             }
 
             const dontCollapse = urlParams.get('dontCollapse');
@@ -540,15 +704,9 @@
                 handleAccordionClick.autoCollapseOthers = true;
             }
 
-
-            const homeButton = document.querySelector(".nav-item-primary:not(.accordion)");
-            if (homeButton) {
-                setActive(homeButton);
-            }
-
             primaryButtons.forEach((button) => {
                 button.addEventListener("mouseenter", function () {
-                    if (document.getElementById('sideNav').classList.contains('sidenav-collapsed')) {
+                    if (document.getElementById('sideNav').classList.contains('sidenav-collapsed') & !hoverExpandStatus) {
                         showTooltip(this);
                     }
                 });
@@ -630,6 +788,7 @@
                             handleAccordionClick.call(this, event, action);
                         });
                     });
+
                 });
             });
 
@@ -658,17 +817,23 @@
                             content.classList.add('accordion-expand');
                             chevron.classList.add('chevron-rotate');
                         }, 0);
-                        setTimeout(() => {
-                            sideNav.classList.add('sidenav-collapsed');
-                            content.classList.remove('accordion-expand');
-                            chevron.classList.remove('chevron-rotate');
-                        }, 2400); // Adjust timing as needed
+
+                        // Add mouseleave event for collapsing after 2 seconds
+                        sideNav.addEventListener('mouseleave', function () {
+                            setTimeout(() => {
+                                sideNav.classList.add('sidenav-collapsed');
+                                content.classList.remove('accordion-expand');
+                                chevron.classList.remove('chevron-rotate');
+                            }, 600); // Adjust timing as needed
+                        }, {
+                            once: true
+                        });
                     } else if (action === 'expand') {
                         document.querySelectorAll('.tooltip').forEach(tooltip => {
                             tooltip.style.display = 'none';
                         });
                         sideNav.classList.remove('sidenav-collapsed');
-                         NavExpand = true;
+                        NavExpand = true;
                         setTimeout(() => {
                             content = this.nextElementSibling;
                             chevron = this.querySelector('.chevron-down');
@@ -707,10 +872,10 @@
             });
 
 
-            document.getElementById('autoCollapse').addEventListener('change', function () {
-                handleAccordionClick.autoCollapseOthers = this.checked;
-                updateURLParameter('autoCollapse', this.checked ? 'yes' : 'no');
-            });
+            // document.getElementById('autoCollapse').addEventListener('change', function () {
+            //     handleAccordionClick.autoCollapseOthers = this.checked;
+            //     updateURLParameter('autoCollapse', this.checked ? 'yes' : 'no');
+            // });
 
 
             function updateURLParameter(param, value) {
@@ -733,9 +898,15 @@
             function fillPopupWithContent(content, target, originalAccordion) {
                 const popup = document.getElementById('popup-wrapper');
                 popup.innerHTML = content.innerHTML;
+                // Add section title at the top
+                const sectionTitle = document.createElement('div');
+                sectionTitle.className = 'popup-section-title';
+                sectionTitle.innerText = originalAccordion.querySelector('.nav-item-text').innerText;
+                popup.prepend(sectionTitle);
+
                 const rect = target.getBoundingClientRect();
                 popup.style.top = `${rect.top}px`;
-                popup.style.left = `${rect.right + 4}px`;
+                popup.style.left = `${rect.right -2}px`;
 
                 // Add event listeners to the buttons inside the popup
                 const popupButtons = popup.querySelectorAll('.nav-item-secondary');
@@ -766,13 +937,6 @@
                     });
                 }
             }
-
-            document.getElementById('hoverExpand').addEventListener('change', function () {
-                updateURLParameter('hoverExpand', this.checked ? 'yes' : 'no');
-                const sideNav = document.getElementById('sideNav');
-                hoverExpandStatus = this.checked ? true : false;
-                checkhoverExpandStatus();
-            });
 
             function handleExpandedState() {
                 const sideNav = document.getElementById('sideNav');
@@ -811,6 +975,12 @@
             currentActive = element;
         }
 
+        function updateURLParameter(param, value) {
+            const url = new URL(window.location);
+            url.searchParams.set(param, value);
+            window.history.replaceState({}, '', url);
+        }
+
 
         function toggleSideNav() {
             const sideNav = document.getElementById('sideNav');
@@ -822,13 +992,17 @@
 
             if (sideNav.classList.contains('sidenav-collapsed')) {
                 NavExpand = false;
-                checkhoverExpandStatus();
+                if (hoverExpandStatus) {
+                    sideNav.addEventListener('mouseenter', handleMouseEnter);
+                    sideNav.addEventListener('mouseleave', handleMouseLeave);
+                }
+                updateURLParameter('NavExpand', false);
             } else {
                 NavExpand = true;
-                checkhoverExpandStatus();
+                sideNav.removeEventListener('mouseenter', handleMouseEnter);
+                sideNav.removeEventListener('mouseleave', handleMouseLeave);
+                updateURLParameter('NavExpand', true);
             }
-
-
 
             if (sideNav.classList.contains('sidenav-collapsed')) {
                 const allAccordions = document.querySelectorAll('.secondary-item-wrapper');
@@ -855,23 +1029,37 @@
         function checkhoverExpandStatus() {
             const sideNav = document.getElementById('sideNav');
             if (hoverExpandStatus == true && NavExpand == false) {
-                sideNav.addEventListener('mouseenter', expandSideNav);
-                sideNav.addEventListener('mouseleave', collapseSideNav);
+                sideNav.addEventListener('mouseenter', handleMouseEnter);
+                sideNav.addEventListener('mouseleave', handleMouseLeave);
             } else {
-                sideNav.removeEventListener('mouseenter', expandSideNav);
-                sideNav.removeEventListener('mouseleave', collapseSideNav);
+                sideNav.removeEventListener('mouseenter', handleMouseEnter);
+                sideNav.removeEventListener('mouseleave', handleMouseLeave);
             }
         }
 
+        function handleMouseEnter() {
+            clearTimeout(hoverTimer);
+            hoverTimer = setTimeout(expandSideNav, 300);
+        }
+
+        function handleMouseLeave() {
+            clearTimeout(hoverTimer);
+            hoverTimer = setTimeout(collapseSideNav, 200);
+        }
+
         function expandSideNav() {
-            this.classList.remove('sidenav-collapsed');
+            const sideNav = document.getElementById('sideNav');
+            sideNav.classList.remove('sidenav-collapsed');
             handleExpandedState();
         }
 
         function collapseSideNav() {
-            this.classList.add('sidenav-collapsed');
+            const sideNav = document.getElementById('sideNav');
+            sideNav.classList.add('sidenav-collapsed');
             handleCollapsedState();
         }
+
+        checkhoverExpandStatus();
 
 
         function handleExpandedState() {
