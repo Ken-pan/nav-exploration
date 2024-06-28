@@ -11,7 +11,7 @@
 }
 
 #design-menu {
-  display: none; 
+  display: none;
 }
 #design-menu.visible {
   display: block;
@@ -41,6 +41,7 @@ nav:hover #fab {
 
 #sideNav {
   width: 300px;
+  display: none;
 }
 
 #sideNav.sidenav-collapsed {

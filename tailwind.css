@@ -1125,6 +1125,7 @@ nav:hover #fab {
 
 #sideNav {
   width: 300px;
+  display: none;
 }
 
 #sideNav.sidenav-collapsed {
