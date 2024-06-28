@@ -530,9 +530,12 @@
 
             applyNavState();
 
-            const hidemenu = urlParams.get('HideMenu');
-            if (hidemenu === 'true') {
-                document.querySelector("#design-menu").style.display = 'none';
+            const designMenu = document.getElementById('design-menu');
+            const hideMenu = urlParams.get('HideMenu');
+            if (hideMenu === 'true') {
+                designMenu.style.display = 'none';
+            } else {
+                designMenu.classList.add('visible');
             }
 
             const path1 = urlParams.get('path1');

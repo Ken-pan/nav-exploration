@@ -7,7 +7,14 @@
 }
 
 #sideNav.sidenav-collapsed {
+  display: none;
+}
+
+#design-menu {
   display: none; 
+}
+#design-menu.visible {
+  display: block;
 }
 
 nav #fab {
