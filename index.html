@@ -520,9 +520,15 @@
 
             preloadNavExpand = urlParams.get('NavExpand');
             if (preloadNavExpand === 'false') {
-                console.log('close!')
-                toggleSideNav()
+                sideNav.classList.add('sidenav-collapsed');
+                NavExpand = false;
+            } else {
+                NavExpand = true;
             }
+
+            sideNav.style.display = 'flex';
+
+            applyNavState();
 
             const hidemenu = urlParams.get('HideMenu');
             if (hidemenu === 'true') {
@@ -546,8 +552,12 @@
             }
 
             function updateMainContent(path1, path2 = null) {
+                const path1Element = document.getElementById('path-1');
+                const path2Element = document.getElementById('path-2');
+                const title = document.getElementById('title');
+
                 path1Element.innerText = path1;
-                if (!path2 === 'N/A') {
+                if (path2 && path2 !== 'N/A') {
                     path2Element.innerText = path2;
                     title.innerText = path2;
                 } else {
@@ -917,6 +927,15 @@
                         setActive(originalButtons[index]); // Set corresponding original button as active
                         togglePopupVisibility(false); // Hide popup after selecting
                         updateParentClasses();
+
+                        const primaryText = originalAccordion.querySelector('.nav-item-text').innerText;
+                        const secondaryText = button.querySelector('.nav-item-text').innerText;
+                        console.log(primaryText)
+                        console.log(secondaryText)
+                        updateURLParameter('path1', primaryText);
+                        updateURLParameter('path2', secondaryText);
+                        updateMainContent(primaryText, secondaryText);
+                        location.reload();
                     });
                 });
             }
@@ -965,7 +984,10 @@
         });
 
 
-
+        const defaultActiveTab = document.querySelector(".nav-item-primary.active");
+        if (defaultActiveTab) {
+            setActive(defaultActiveTab);
+        }
 
         function setActive(element) {
             if (currentActive) {
@@ -985,6 +1007,11 @@
         function toggleSideNav() {
             const sideNav = document.getElementById('sideNav');
             sideNav.classList.toggle('sidenav-collapsed');
+            applyNavState();
+        }
+
+        function applyNavState() {
+            const sideNav = document.getElementById('sideNav');
 
             document.querySelectorAll('.tooltip').forEach(tooltip => {
                 tooltip.style.display = 'none';
@@ -1025,6 +1052,7 @@
                 }
             }
         }
+
 
         function checkhoverExpandStatus() {
             const sideNav = document.getElementById('sideNav');

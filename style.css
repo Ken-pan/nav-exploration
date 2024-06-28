@@ -6,8 +6,9 @@
   display: none;
 }
 
-
-
+#sideNav.sidenav-collapsed {
+  display: none; 
+}
 
 nav #fab {
   opacity: 0;
