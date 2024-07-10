@@ -12,7 +12,7 @@
             <!-- Logo Section -->
             <div class="flex items-center">
                 <div class="flex items-center">
-                    <button id="in-header-btn" class="p-2 mr-4 rounded-full hover:bg-gray-100 -ml-2" onclick="toggleSideNav()"><img src="./assets/img/menu-01.png" alt="menu" class="w-6 h-6"></button>
+                    <button id="in-header-btn" class="p-2 mr-4 rounded-full hover:bg-gray-100 -ml-4" onclick="toggleSideNav()"><img src="./assets/img/menu-01.png" alt="menu" class="w-6 h-6"></button>
                     <img src="/assets/img/Logo.png" alt="ingram micro logo" class="w-[246px] h-[32px] flex flex-col">
                 </div>
             </div>
@@ -50,8 +50,20 @@
     </header>
     <div class="flex w-full h-full">
         <nav id="sideNav" class="bg-gray-50 text-gray-700 border-r border-gray-200 duration-300 h-full flex-col justify-between relative">
-            <div id="hover-area" class="absolute top-0 -right-4 h-full w-4"></div>
+            <div id="hover-area" class="absolute top-0 -right-8 h-full w-8"></div>
             <div id="naviation-top" class="pt-6 gap-2 h-full overflow-scroll w-full flex flex-col">
+                <div class="gap-1 w-full flex flex-col pr-2 pl-4" id="in-sidenav-btn" style="display: block;">
+                    <div class="flex justify-between items-center h-fit w-full bg-transparent rounded-full overflow-hidden mb-2">
+                        <p class="text-gray-500 text-sm font-medium text-start flex-grow overflow-hidden whitespace-nowrap order-1" id="in-sidenav-btn-text">Hide sidebar</p>
+                        <button class="py-2 px-3 rounded-full hover:bg-gray-100 flex-shrink-0 order-2" onclick="toggleSideNav()">
+                            <img src="./assets/img/align-left-01.png" alt="collapse" class="w-5 h-5" id="align-icon">
+                        </button>
+
+                    </div>
+                    <div class="border-b border-[1px] border-gray-200 w-full"></div>
+                </div>
+
+
                 <button class="nav-item-primary gap-1 w-full flex pr-2 pl-1 active">
                     <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
                     <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
@@ -60,7 +72,6 @@
                         <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
                     </div>
                 </button>
-
                 <button class="nav-item-primary accordion gap-1 w-full flex pr-2 pl-1">
                     <div class="nav-item-current bg-transparent w-1 h-10 rounded-full"></div>
                     <div class="nav-item-content px-3 py-2 gap-3 flex justify-center items-center h-fit w-full bg-transparent rounded-full">
@@ -321,10 +332,10 @@
                         <img src="./assets/img/chevron-down.png" alt="chevron" class="w-6 h-6 max-w-6 chevron-down">
                     </div>
                 </button>
-                <button id="in-sidebar-btn" class="p-2 w-10 h-10 mx-2 rounded-full hover:bg-gray-100" onclick="toggleSideNav()"><img src="./assets/img/chevron-left-double.png" alt="menu" class="w-6 h-6"></button>
+                <!-- <button id="in-sidebar-btn" class="p-2 w-10 h-10 mx-2 rounded-full hover:bg-gray-100" onclick="toggleSideNav()"><img src="./assets/img/chevron-left-double.png" alt="menu" class="w-6 h-6"></button> -->
             </div>
             <button id="tag-btn" class="flex justify-center items-center w-8 h-9 absolute -right-8 bottom-6 rounded-r-2xl bg-gray-100 hover:bg-gray-200 border border-gray-200" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-6 h-6 mr-1"></button>
-            <button id="fab" class=" flex justify-center items-center w-8 h-8 absolute -right-4 bottom-6 rounded-full bg-white hover:bg-gray-100 border border-gray-200 shadow-sm" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-5 h-5"></button>
+            <button id="fab" class=" flex justify-center items-center w-7 h-7 absolute -right-4 bottom-6 rounded-full bg-white hover:border-primary-700 border border-gray-200 shadow-sm hover:shadow-xl" onclick="toggleSideNav()"><img src="./assets/img/chevron-left.png" alt="menu" class="w-[16px] h-[16px]"></button>
 
         </nav>
         <main class="p-8 w-full full">
@@ -345,56 +356,48 @@
         <menu class="bg-gray-800 text-gray-100 absolute w-[400px] h-[500px] bottom-2 right-2 rounded-lg border-gray-300 border p-4" id="design-menu">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="text-lg font-bold  text-gray-25">Interaction Setting</h2>
-                <button id="close-menu-btn" class=" w-8 h-8 flex justify-center items-center p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">X</button>
+                <!-- <button id="close-menu-btn" class=" w-8 h-8 flex justify-center items-center p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700">X</button> -->
                 <button id="open-menu-btn" class="hidden absolute top-0 right-0 w-12 h-12 bg-gray-700 text-white rounded-full items-center justify-center">
                     <img src="/assets/img/setting.png" alt="Settings" class="w-6 h-6">
                 </button>
             </div>
-
-
             <div class="mb-6">
-
                 <div class="mb-6">
                     <label class="block text-sm mb-2">01 | Accordion in Collapsed SideNav</label>
                     <div class="grid grid-cols-2 gap-1">
                         <input type="radio" id="accordion-popup" name="accordionAction" value="popup" class="custom-radio">
                         <label for="accordion-popup">Open popup menu</label>
-
                         <input type="radio" id="accordion-expandTemporary" name="accordionAction" value="expandTemporary" class="custom-radio">
                         <label for="accordion-expandTemporary">Expand temporarily</label>
-
                         <!-- <input type="radio" id="accordion-expand" name="accordionAction" value="expand" class="custom-radio">
                         <label for="accordion-expand">Expand permanently</label> -->
-
                         <input type="radio" id="hoverExpand" name="accordionAction" value="hoverExpand" class="custom-radio">
                         <label for="hoverExpand">Hover to Expand</label>
                     </div>
                 </div>
-
                 <label class="block text-sm mb-2">02 | Sidenav Collapse Button</label>
                 <div class="grid grid-cols-2 gap-1">
                     <input type="radio" id="collapse-header" name="collapseButtonPosition" value="header" class="custom-radio">
-                    <label for="collapse-header">Top Left (In-header)</label>
+                    <label for="collapse-header">Top Left (Hamburger)</label>
 
-                    <!-- <input type="radio" id="collapse-sidenavBottom" name="collapseButtonPosition" value="sidenavBottom" class="custom-radio">
-                    <label for="collapse-sidenavBottom">Inside sidenav bottom</label> -->
-
+                    <input type="radio" id="collapse-inSidenavBtn" name="collapseButtonPosition" value="inSidenavBtn" class="custom-radio">
+                    <label for="collapse-inSidenavBtn">In Sidenav (Align-left)</label>
                     <input type="radio" id="collapse-tagBottom" name="collapseButtonPosition" value="tagBottom" class="custom-radio">
                     <label for="collapse-tagBottom">Bottom Left (Small Tag)</label>
 
                     <input type="radio" id="collapse-fabTop" name="collapseButtonPosition" value="fabTop" class="custom-radio">
-                    <label for="collapse-fabTop">FAB-Top</label>
+                    <label for="collapse-fabTop">FAB-Top(Chevron)</label>
 
                     <input type="radio" id="collapse-fabMiddle" name="collapseButtonPosition" value="fabMiddle" class="custom-radio">
-                    <label for="collapse-fabMiddle">FAB-Middle</label>
+                    <label for="collapse-fabMiddle">FAB-Middle(Chevron)</label>
 
                     <input type="radio" id="collapse-fabBottom" name="collapseButtonPosition" value="fabBottom" class="custom-radio">
-                    <label for="collapse-fabBottom">FAB-Bottom</label>
+                    <label for="collapse-fabBottom">FAB-Bottom(Chevron)</label>
                 </div>
             </div>
 
             <div>
-                <p>Note: FAB is now automatically hidden and will be displayed when hovering over the navigation bar.</p>
+                <p>Note: FAB-Top is now automatically hidden and will be displayed when hovering over the navigation bar.</p>
             </div>
 
 
@@ -646,7 +649,7 @@
             function updateButtonPosition(position) {
                 const toggleSideNavButtons = {
                     header: document.getElementById('in-header-btn'),
-                    sidenavBottom: document.getElementById('in-sidebar-btn'),
+                    inSidenavBtn: document.getElementById('in-sidenav-btn'),
                     tagBottom: document.getElementById('tag-btn'),
                     fabTop: document.getElementById('fab'),
                     fabMiddle: document.getElementById('fab'),
@@ -661,6 +664,9 @@
                     case 'header':
                         toggleSideNavButtons.header.style.display = 'block';
                         break;
+                    case 'inSidenavBtn':
+                        toggleSideNavButtons.inSidenavBtn.style.display = 'block';
+                        break;
                     case 'sidenavBottom':
                         toggleSideNavButtons.sidenavBottom.style.display = 'block';
                         break;
@@ -669,16 +675,19 @@
                         break;
                     case 'fabTop':
                         toggleSideNavButtons.fabTop.style.display = 'flex';
+                        toggleSideNavButtons.fabTop.classList.add('auto-hide');
                         toggleSideNavButtons.fabTop.style.top = '48px';
                         toggleSideNavButtons.fabBottom.style.bottom = 'auto';
                         break;
                     case 'fabMiddle':
                         toggleSideNavButtons.fabMiddle.style.display = 'flex';
+                        toggleSideNavButtons.fabTop.classList.add('small-size');
                         toggleSideNavButtons.fabMiddle.style.top = '48%';
                         toggleSideNavButtons.fabBottom.style.bottom = 'auto';
                         break;
                     case 'fabBottom':
                         toggleSideNavButtons.fabBottom.style.display = 'flex';
+                        toggleSideNavButtons.fabTop.classList.add('small-size');
                         toggleSideNavButtons.fabMiddle.style.top = 'auto';
                         toggleSideNavButtons.fabBottom.style.bottom = '28px';
                         break;

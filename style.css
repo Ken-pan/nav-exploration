@@ -17,10 +17,14 @@
   display: block;
 }
 
-nav #fab {
+nav #fab.auto-hide {
   opacity: 0;
   transition: opacity 180ms ease-in-out;
 }
+
+/* #fab.small-size{
+  transform: scale(0.8);
+} */
 
 nav:hover #fab {
   opacity: 1;
@@ -63,6 +67,10 @@ nav:hover #fab {
 }
 
 #sideNav.sidenav-collapsed #in-sidebar-btn {
+  transform: rotate(180deg);
+}
+
+#sideNav.sidenav-collapsed #align-icon {
   transform: rotate(180deg);
 }
 
