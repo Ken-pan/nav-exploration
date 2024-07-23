@@ -303,7 +303,7 @@ menu {
 }
 
 #header {
-  transition: margin-left 300ms ease-in-out;
+  transition: margin-left 300ms;
 }
 
 #header.shorter-width.sidenav-collapsed {

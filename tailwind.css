@@ -1121,10 +1121,6 @@ video {
   transition-duration: 300ms;
 }
 
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .chevron-down {
   display: none;
 }
@@ -1431,7 +1427,7 @@ menu {
 }
 
 #header {
-  transition: margin-left 300ms ease-in-out;
+  transition: margin-left 300ms;
 }
 
 #header.shorter-width.sidenav-collapsed {
