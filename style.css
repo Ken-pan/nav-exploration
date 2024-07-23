@@ -53,13 +53,13 @@ nav:hover #fab {
 }
 
 #naviation-top {
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
 #naviation-top::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
+  display: none; /* Safari and Chrome */
 }
 
 #sideNav.sidenav-collapsed #naviation-bottom {
@@ -300,4 +300,25 @@ menu {
 
 .menu-collapsed #open-menu-btn {
   display: flex;
+}
+
+#header {
+  transition: margin-left 300ms ease-in-out;
+}
+
+#header.shorter-width.sidenav-collapsed {
+  margin-left: 68px;
+}
+
+#header.shorter-width {
+  margin-left: 288px;
+}
+
+#sideNav.to-top {
+  margin-top: -72px;
+  height: 100vh;
+}
+
+.no-transition * {
+  transition: none !important;
 }

@@ -6,8 +6,8 @@
     <title>Side Nav</title>
     <link rel="stylesheet" href="/tailwind.css">
 </head>
-<body class="pt-[72px] h-screen">
-    <header class="fixed top-0 w-full h-[72px] bg-white border-b border-gray-200 flex items-center z-50">
+<body class="pt-[72px] h-screen no-transition">
+    <header class="fixed top-0 w-full h-[72px] bg-white border-b border-gray-200 flex items-center z-50" id="header">
         <div class="w-full h-18 px-8 flex justify-between items-center ">
             <!-- Logo Section -->
             <div class="flex items-center">
@@ -49,7 +49,7 @@
         </div>
     </header>
     <div class="flex w-full h-full">
-        <nav id="sideNav" class="bg-gray-50 text-gray-700 border-r border-gray-200 duration-300 h-full flex-col justify-between relative">
+        <nav id="sideNav" class="bg-gray-50 text-gray-700 border-r border-gray-200 duration-300 h-full flex-col justify-between relative ease-in-out">
             <div id="hover-area" class="absolute top-0 -right-8 h-full w-8"></div>
             <div id="naviation-top" class="pt-6 gap-2 h-full overflow-scroll w-full flex flex-col">
                 <div class="gap-1 w-full flex flex-col pr-2 pl-4" id="in-sidenav-btn" style="display: block;">
@@ -367,12 +367,12 @@
                     <div class="grid grid-cols-2 gap-1">
                         <input type="radio" id="accordion-popup" name="accordionAction" value="popup" class="custom-radio">
                         <label for="accordion-popup">Open popup menu</label>
-                        <input type="radio" id="accordion-expandTemporary" name="accordionAction" value="expandTemporary" class="custom-radio">
-                        <label for="accordion-expandTemporary">Expand temporarily</label>
-                        <!-- <input type="radio" id="accordion-expand" name="accordionAction" value="expand" class="custom-radio">
-                        <label for="accordion-expand">Expand permanently</label> -->
-                        <input type="radio" id="hoverExpand" name="accordionAction" value="hoverExpand" class="custom-radio">
-                        <label for="hoverExpand">Hover to Expand</label>
+                        <!-- <input type="radio" id="accordion-expandTemporary" name="accordionAction" value="expandTemporary" class="custom-radio">
+                        <label for="accordion-expandTemporary">Expand temporarily</label> -->
+                        <input type="radio" id="accordion-expand" name="accordionAction" value="expand" class="custom-radio">
+                        <label for="accordion-expand">Expand permanently</label>
+                        <!-- <input type="radio" id="hoverExpand" name="accordionAction" value="hoverExpand" class="custom-radio">
+                        <label for="hoverExpand">Hover to Expand</label> -->
                     </div>
                 </div>
                 <label class="block text-sm mb-2">02 | Sidenav Collapse Button</label>
@@ -380,7 +380,7 @@
                     <input type="radio" id="collapse-header" name="collapseButtonPosition" value="header" class="custom-radio">
                     <label for="collapse-header">Top Left (Hamburger)</label>
 
-                    <input type="radio" id="collapse-inSidenavBtn" name="collapseButtonPosition" value="inSidenavBtn" class="custom-radio">
+                    <!-- <input type="radio" id="collapse-inSidenavBtn" name="collapseButtonPosition" value="inSidenavBtn" class="custom-radio">
                     <label for="collapse-inSidenavBtn">In Sidenav (Align-left)</label>
                     <input type="radio" id="collapse-tagBottom" name="collapseButtonPosition" value="tagBottom" class="custom-radio">
                     <label for="collapse-tagBottom">Bottom Left (Small Tag)</label>
@@ -392,13 +392,13 @@
                     <label for="collapse-fabMiddle">FAB-Middle(Chevron)</label>
 
                     <input type="radio" id="collapse-fabBottom" name="collapseButtonPosition" value="fabBottom" class="custom-radio">
-                    <label for="collapse-fabBottom">FAB-Bottom(Chevron)</label>
+                    <label for="collapse-fabBottom">FAB-Bottom(Chevron)</label> -->
                 </div>
             </div>
 
-            <div>
+            <!-- <div>
                 <p>Note: FAB-Top is now automatically hidden and will be displayed when hovering over the navigation bar.</p>
-            </div>
+            </div> -->
 
 
 
@@ -479,6 +479,7 @@
             const path2Element = document.getElementById('path-2');
 
 
+
             primaryButtons.forEach(button => {
                 button.addEventListener("click", function () {
                     const primaryText = this.querySelector('.nav-item-text').innerText;
@@ -524,11 +525,22 @@
             preloadNavExpand = urlParams.get('NavExpand');
             if (preloadNavExpand === 'false') {
                 sideNav.classList.add('sidenav-collapsed');
+                if (sideNav.classList.contains('sidenav-collapsed')) {
+                    header.classList.add('sidenav-collapsed')
+                } else {
+                    header.classList.remove('sidenav-collapsed')
+                }
                 NavExpand = false;
             } else {
                 NavExpand = true;
             }
+            const collapseButtonPosition = urlParams.get('collapseBtnPosition');
+            if (collapseButtonPosition === 'header') {
+                header.classList.add('shorter-width');
+                sideNav.classList.add('to-top');
+            }
 
+            document.body.classList.remove('no-transition');
             sideNav.style.display = 'flex';
             applyNavState();
 
@@ -663,33 +675,47 @@
                 switch (position) {
                     case 'header':
                         toggleSideNavButtons.header.style.display = 'block';
+                        document.getElementById('header').classList.add('shorter-width');
+                        document.getElementById('sideNav').classList.add('to-top');
                         break;
                     case 'inSidenavBtn':
                         toggleSideNavButtons.inSidenavBtn.style.display = 'block';
+                        document.getElementById('header').classList.remove('shorter-width');
+                        document.getElementById('sideNav').classList.remove('to-top');
                         break;
                     case 'sidenavBottom':
                         toggleSideNavButtons.sidenavBottom.style.display = 'block';
+                        document.getElementById('header').classList.remove('shorter-width');
+                        document.getElementById('sideNav').classList.remove('to-top');
                         break;
                     case 'tagBottom':
                         toggleSideNavButtons.tagBottom.style.display = 'block';
+                        document.getElementById('header').classList.remove('shorter-width');
+                        document.getElementById('sideNav').classList.remove('to-top');
                         break;
                     case 'fabTop':
                         toggleSideNavButtons.fabTop.style.display = 'flex';
                         toggleSideNavButtons.fabTop.classList.add('auto-hide');
                         toggleSideNavButtons.fabTop.style.top = '48px';
                         toggleSideNavButtons.fabBottom.style.bottom = 'auto';
+                        document.getElementById('header').classList.remove('shorter-width');
+                        document.getElementById('sideNav').classList.remove('to-top');
                         break;
                     case 'fabMiddle':
                         toggleSideNavButtons.fabMiddle.style.display = 'flex';
                         toggleSideNavButtons.fabTop.classList.remove('auto-hide');
                         toggleSideNavButtons.fabMiddle.style.top = '48%';
                         toggleSideNavButtons.fabBottom.style.bottom = 'auto';
+                        document.getElementById('header').classList.remove('shorter-width');
+                        document.getElementById('sideNav').classList.remove('to-top');
                         break;
                     case 'fabBottom':
                         toggleSideNavButtons.fabBottom.style.display = 'flex';
                         toggleSideNavButtons.fabTop.classList.remove('auto-hide');
                         toggleSideNavButtons.fabMiddle.style.top = 'auto';
                         toggleSideNavButtons.fabBottom.style.bottom = '28px';
+                        document.getElementById('header').classList.remove('shorter-width');
+                        document.getElementById('sideNav').classList.remove('to-top');
                         break;
                 }
             }
@@ -757,7 +783,7 @@
                 }
 
                 const rect = element.getBoundingClientRect();
-                tooltip.style.top = `${rect.top - 72}px`;
+                tooltip.style.top = `${rect.top + 4}px`;
                 tooltip.style.left = `${rect.right + 4}px`;
                 tooltip.style.display = "block";
             }
@@ -854,7 +880,10 @@
                             tooltip.style.display = 'none';
                         });
                         sideNav.classList.remove('sidenav-collapsed');
+                        document.getElementById('header').classList.remove('sidenav-collapsed')
                         NavExpand = true;
+                        updateURLParameter('NavExpand', true);
+
                         setTimeout(() => {
                             content = this.nextElementSibling;
                             chevron = this.querySelector('.chevron-down');
@@ -1018,6 +1047,13 @@
         function toggleSideNav() {
             const sideNav = document.getElementById('sideNav');
             sideNav.classList.toggle('sidenav-collapsed');
+            const header = document.getElementById('header');
+            if (sideNav.classList.contains('sidenav-collapsed')) {
+                header.classList.add('sidenav-collapsed')
+            } else {
+                header.classList.remove('sidenav-collapsed')
+            }
+
             applyNavState();
         }
 
