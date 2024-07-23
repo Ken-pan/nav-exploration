@@ -307,16 +307,17 @@ menu {
 }
 
 #header.shorter-width.sidenav-collapsed {
-  margin-left: 68px;
+  padding-left: 68px;
 }
 
 #header.shorter-width {
-  margin-left: 288px;
+  padding-left: 288px;
 }
 
 #sideNav.to-top {
   margin-top: -72px;
   height: 100vh;
+  z-index: 9999;
 }
 
 .no-transition * {
