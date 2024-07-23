@@ -1445,7 +1445,7 @@ menu {
 #sideNav.to-top {
   margin-top: -72px;
   height: 100vh;
-  z-index: 9999;
+  z-index: 90;
 }
 
 .no-transition * {
